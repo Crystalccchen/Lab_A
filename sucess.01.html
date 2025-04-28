@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel + 美術館資訊卡片</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #f0f0f0;
+        overflow: hidden;
+      }
+
+      .carousel-wrapper {
+        position: relative;
+        width: 600px;
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .item {
+        width: 200px;
+        height: 150px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -75px 0 0 -100px; /* 這裡改對 */
+        transition: all 0.8s ease;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(0) translateY(50px) scale(0.8) rotate(0deg);
+      }
+
+      .center {
+        transform: translateX(0px) translateY(-50px) scale(1.2) rotate(0deg);
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 3;
+      }
+      .left {
+        transform: translateX(-300px) translateY(30px) scale(1) rotate(-10deg);
+        opacity: 0.7;
+        z-index: 2;
+      }
+      .right {
+        transform: translateX(300px) translateY(30px) scale(1) rotate(10deg);
+        opacity: 0.7;
+        z-index: 2;
+      }
+      .out-left {
+        transform: translateX(-500px) translateY(50px) scale(0.8) rotate(-20deg);
+        opacity: 0;
+        z-index: 1;
+      }
+      .out-right {
+        transform: translateX(500px) translateY(50px) scale(0.8) rotate(20deg);
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .item img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        border: 5px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.5rem;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+        z-index: 5;
+      }
+
+      .prev {
+        left: 10px;
+      }
+      .next {
+        right: 10px;
+      }
+
+      /* 下方資訊卡片 */
+      .info-card {
+        background: #f7f5f5;
+        border-radius: 20px;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px 30px;
+        margin-top: 30px;
+        width: 400px;
+        text-align: left;
+      }
+
+      .info-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .info-card li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .info-card li::before {
+        content: "🌸"; /* 小花符號 */
+        margin-right: 10px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="carousel-wrapper">
+      <div class="carousel" id="carousel">
+        <!-- JS產生圖片 -->
+      </div>
+      <a class="prev" onclick="moveSlide(-1)">❮</a>
+      <a class="next" onclick="moveSlide(1)">❯</a>
+    </div>
+
+    <div class="info-card" id="info-card">
+      <ul id="info-list">
+        <!-- JS產生文字 -->
+      </ul>
+    </div>
+
+    <script>
+      const images = [
+        {
+          src: "https://picsum.photos/id/1059/300/300",
+          name: "高雄市立美術館",
+          address: "高雄市鼓山區美術館路80號",
+          time: "週二至週日 09:30–17:30（週一休館）",
+        },
+        {
+          src: "https://picsum.photos/id/225/300/300",
+          name: "台南市立美術館",
+          address: "台南市中西區南門路37號",
+          time: "週一至週日 10:00–18:00（週三休館）",
+        },
+        {
+          src: "https://picsum.photos/id/163/300/300",
+          name: "台北市立美術館",
+          address: "台北市中山區中山北路三段181號",
+          time: "週二至週日 09:30–17:30（週一休館）",
+        },
+        {
+          src: "https://picsum.photos/id/1025/300/300",
+          name: "國立故宮博物院",
+          address: "台北市士林區至善路二段221號",
+          time: "週一至週日 09:00–17:00",
+        },
+        {
+          src: "https://picsum.photos/id/1035/300/300",
+          name: "奇美博物館",
+          address: "台南市仁德區文華路二段66號",
+          time: "週二至週日 09:30–17:30（週一休館）",
+        },
+      ];
+
+      const carousel = document.getElementById("carousel");
+      let currentIndex = 0;
+
+      // 動態產生圖片
+      images.forEach((imgData) => {
+        const item = document.createElement("div");
+        item.className = "item";
+        const img = document.createElement("img");
+        img.src = imgData.src;
+        item.appendChild(img);
+        carousel.appendChild(item);
+      });
+
+      const items = document.querySelectorAll(".item");
+
+      function updateSlides() {
+        items.forEach((item, index) => {
+          item.className = "item";
+          const relativeIndex =
+            (index - currentIndex + images.length) % images.length;
+          if (relativeIndex === 0) {
+            item.classList.add("center");
+          } else if (relativeIndex === 1) {
+            item.classList.add("right");
+          } else if (relativeIndex === images.length - 1) {
+            item.classList.add("left");
+          } else if (relativeIndex < images.length / 2) {
+            item.classList.add("out-right");
+          } else {
+            item.classList.add("out-left");
+          }
+        });
+
+        // 更新info卡片
+        const infoList = document.getElementById("info-list");
+        infoList.innerHTML = `
+        <li>${images[currentIndex].name}</li>
+        <li>${images[currentIndex].address}</li>
+        <li>${images[currentIndex].time}</li>
+      `;
+      }
+
+      function moveSlide(direction) {
+        currentIndex =
+          (currentIndex + direction + images.length) % images.length;
+        updateSlides();
+      }
+
+      // 初始化
+      updateSlides();
+    </script>
+  </body>
+</html>
