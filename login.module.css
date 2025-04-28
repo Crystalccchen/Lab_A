@@ -1,0 +1,105 @@
+/* The Modal (background) */
+.login,
+.register,
+.forgetPwd,
+.mailVerify,
+.newPwd {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.login-content,
+.register-content,
+.forgetPwd-content,
+.mailVerify-content,
+.newPwd-content {
+  position: relative;
+  background-color: #fefefe;
+  border-radius: 2%;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  display: flex;
+  flex-direction: column; /* 直向排列 */
+  width: 20%;
+  background-color: #d9d9d9;
+}
+
+
+/* 標題文字 */
+.login-content p,
+.register-content p,
+.forgetPwd-content p,
+.mailVerify-content p,
+.newPwd-content p {
+  display: flex;
+  justify-content: center;
+  align-items: center; /*文字置中*/
+  margin-bottom: 80px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; /* 讓 padding 不會撐爆寬度 */
+  margin-bottom: 30px; /* 增加欄位間距 */
+  border-radius: 2px;
+}
+
+
+/* 按鈕 */
+#btnlogin,#btnregister,#btnForgetPwd,#btnMailVerify,#btnNewPwd {
+  background-color: #adacac;
+  margin-top: 50px;
+  width: 30%;
+  align-self: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 8px;
+}
+
+/* 忘記密碼 立即註冊 */
+
+.link-group {
+  display: flex;
+  justify-content: center; /* 讓整組置中 */
+  gap: 8px; /* 控制 a 和 | 的距離 */
+  margin-top: 20px; /* 跟按鈕有一點間距 */
+  font-size: 14px;
+}
+
+.link-group a {
+  text-decoration: none;
+  color: #333;
+}
+
+.link-group a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  color: #999;
+}
+
+
+.close {
+  position: absolute;
+  top: -10px; /* 往上移動，讓圖片超出框框 */
+  right: -10px; /* 往右移動，讓圖片超出框框 */
+  cursor: pointer; /* 讓圖片可點擊 */
+  width: 30px;  /* 調整圖片寬度 */
+  height: 30px; /* 調整圖片高度 */
+  z-index: 2; /* 確保圖片顯示在最上層 */
+}

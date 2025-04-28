@@ -1,0 +1,45 @@
+/* 外部包裝容器：讓內容靠右 */
+.search-wrapper {
+  text-align: right;
+  padding: 20px;
+}
+
+/* 搜尋欄區塊 */
+.search-container {
+  background-color: #e0e3ec;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+}
+
+/* 標籤 */
+.search-label {
+  margin-right: 8px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* 輸入框 */
+.search-input {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  width: 200px;
+  outline: none;
+}
+
+/* 按鈕 */
+.search-button {
+  background: none;
+  border: none;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+}

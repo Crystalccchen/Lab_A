@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/01.css" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="carousel">
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+
+      <div class="item left">
+        <img src="https://picsum.photos/id/1059/300/300" />
+      </div>
+      <div class="item center">
+        <img src="https://picsum.photos/id/225/300/300" />
+      </div>
+      <div class="item right">
+        <img src="https://picsum.photos/id/163/300/300" />
+      </div>
+
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <script>
+      let currentIndex = 0;
+      let imageUrls = [
+        "https://picsum.photos/id/1059/300/300",
+        "https://picsum.photos/id/163/300/300",
+        "https://picsum.photos/id/225/300/300",
+      ];
+
+      const items = document.querySelectorAll(".item"); //nodelist
+
+      function plusSlides(n) {
+        currentIndex = (currentIndex + n + imageUrls.length) % imageUrls.length;
+        
+        const leftIndex =
+          (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+        const rightIndex = (currentIndex + 1) % imageUrls.length;
+        const centerIndex = currentIndex;
+
+        items.forEach((item) => {
+          //remove class
+          item.classList.remove("left", "center", "right");
+        });
+
+        items[0].querySelector("img").src = imageUrls[leftIndex];
+        items[1].querySelector("img").src = imageUrls[centerIndex];
+        items[2].querySelector("img").src = imageUrls[rightIndex];
+
+
+        items.forEach((item) =>
+          item.classList.remove("left", "center", "right")
+        );
+        items[0].classList.add("left");
+        items[1].classList.add("center");
+        items[2].classList.add("right");
+      }
+    </script>
+  </body>
+</html>

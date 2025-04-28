@@ -1,0 +1,36 @@
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  gap: 20px;
+  border: solid;
+}
+
+.item {
+  width: 200px;
+  height: 150px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+}
+
+.item.left {
+  transform: rotateZ(-15deg) scale(0.8) translateY(20px);
+  z-index: 1;
+  opacity: 1;
+  transition-property: all;
+}
+
+.item.right {
+  transform: rotateZ(15deg) scale(0.8) translateY(20px);
+  z-index: 1;
+  opacity: 1;
+}
+.item.center {
+  transform: rotateZ(0deg) scale(1.1);
+  z-index: 2;
+  opacity: 1;
+}

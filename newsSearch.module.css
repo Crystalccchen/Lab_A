@@ -1,0 +1,68 @@
+body {
+  font-family: "Arial", sans-serif;
+  background: #f8f8f8;
+}
+
+.searchWrapper {
+  max-width: 760px;
+  margin: 30px 0 0 0; /* 靠左對齊 */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  background-color: #e0e3ec;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.form-group label {
+  margin-right: 6px;
+  font-size: 16px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 14px;
+  outline: none;
+   width: 120px;
+}
+
+#category {
+  width: 300px;  
+}
+
+.full-width {
+  width: 55%;
+  margin-top: 10px;  /*全部類別-白色*/
+}
+
+.full-width select {
+  width: 100%;
+}
+
+.searchBtn {
+  background-color: #d0d0d0;
+  border: none;
+  padding: 6px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+

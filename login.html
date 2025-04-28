@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/login.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
+
+    <!-- login -->
+    <div id="myLogin" class="login">
+      <!-- login content -->
+      <div class="login-content">
+        <img src="./Group 405.png" id="close" />
+        <p>會員登入</p>
+        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="電子信箱" />
+
+        <label for="pwd"></label>
+        <input type="password" id="pwd" name="pwd" placeholder="會員密碼" />
+
+        <button id="btnlogin" type="button">登入</button>
+
+        <div class="link-group">
+          <a id="gotoForgetPwd">忘記密碼？</a>
+          <span class="divider">|</span>
+          <a id="gotoRegister">立即註冊</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- register -->
+    <div id="myRegister" class="register">
+      <!-- register content -->
+      <div class="register-content">
+        <img src="./Group 405.png" id="close" />
+
+        <p>會員註冊</p>
+
+        <label for="name"></label>
+        <input type="name" id="rname" name="name" placeholder="會員姓名" />
+
+        <label for="email"></label>
+        <input type="email" id="remail" name="email" placeholder="電子信箱" />
+
+        <label for="pwd"></label>
+        <input type="password" id="rpwd" name="pwd" placeholder="會員密碼" />
+
+        <label for="bd"></label>
+        <input type="bd" id="bd" name="bd" placeholder="出生日期" />
+
+        <label for="phone"></label>
+        <input type="phone" id="phone" name="phone" placeholder="手機號碼" />
+
+        <button id="btnregister" type="button">註冊</button>
+      </div>
+    </div>
+
+    <!-- forget pwd -->
+    <div id="myForgetPwd" class="forgetPwd">
+      <!-- forget pwd content -->
+      <div class="forgetPwd-content">
+        <img src="./Group 405.png" id="close" />
+
+        <p>忘記密碼?</p>
+        <p>請輸入您的電子郵件，我們將會寄送一封包含驗證碼的信件給您。</p>
+
+        <label for="email"></label>
+        <input type="email" id="femail" name="email" placeholder="電子信箱" />
+        <button id="btnForgetPwd" type="button">確認</button>
+      </div>
+    </div>
+
+    <!-- mail verify -->
+    <div id="myMailVerify" class="mailVerify">
+      <!-- mail verify content -->
+      <div class="mailVerify-content">
+        <img src="./Group 405.png" id="close" />
+        <p>信箱驗證</p>
+
+        <label for="number"></label>
+        <input
+          type="number"
+          id="vcode"
+          name="number"
+          placeholder="請輸入驗證碼"
+        />
+        <button id="btnMailVerify" type="button">送出</button>
+      </div>
+    </div>
+
+    <!-- newPwd -->
+    <div id="myNewPwd" class="newPwd">
+      <!-- newPwd content -->
+      <div class="newPwd-content">
+        <img src="./Group 405.png" id="close" />
+        <p>更改密碼</p>
+        <label for="pwd"></label>
+        <input type="password" id="pwd" name="pwd" placeholder="請輸入新密碼" />
+
+        <label for="pwd"></label>
+        <input
+          type="password"
+          id="pwd"
+          name="pwd"
+          placeholder="請再次輸入新密碼"
+        />
+
+        <button id="btnNewPwd" type="button">確認</button>
+      </div>
+    </div>
+
+    <script>
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // When the user clicks on the button, open the modal
+      btn.onclick = function () {
+        myLogin.style.display = "block";
+      };
+
+
+      // 取得所有close 的元素
+      const closeButtons = document.querySelectorAll("#close");
+      const closeTargets = [
+        "#myLogin",
+        "#myRegister",
+        "#myForgetPwd",
+        "#myMailVerify",
+        "#myNewPwd",
+      ];
+
+      // 針對每個 close 圖片設置點擊事件
+      closeButtons.forEach((close) => {
+        close.addEventListener("click", () => {
+          closeTargets.forEach((selector) => {
+            const element = document.querySelector(selector); // 找到對應的 modal
+            if (element) {
+              element.style.display = "none"; // 隱藏 modal
+            }
+          });
+        });
+      });
+
+      // 點擊外面關閉
+      window.addEventListener("click", (event) => {
+        const selector = [
+          "#myLogin",
+          "#myRegister",
+          "#myForgetPwd",
+          "#myMailVerify",
+          "#myNewPwd",
+        ];
+
+        selector.forEach((selector) => {
+          const modal = document.querySelector(selector); //querySelector轉DOM 元素
+          if (event.target === modal) {
+            //event.target 就是modal 因為背景色也包含modal
+            modal.style.display = "none";
+          }
+        });
+      });
+
+      //點擊註冊換頁面
+      var gotoRegister = document.getElementById("gotoRegister");
+
+      gotoRegister.onclick = function () {
+        myRegister.style.display = "block";
+        myLogin.style.display = "none";
+      };
+
+      //註冊完成
+      var btnregister = document.getElementById("btnregister");
+
+      btnregister.onclick = function () {
+        alert("註冊成功!");
+        myRegister.style.display = "none";
+      };
+
+      //點擊忘記密碼換頁面
+      var gotoForgetPwd = document.getElementById("gotoForgetPwd");
+      gotoForgetPwd.onclick = function () {
+        myForgetPwd.style.display = "block";
+        myLogin.style.display = "none";
+      };
+
+      // 信箱驗證
+      var btnForgetPwd = document.getElementById("btnForgetPwd");
+      btnForgetPwd.onclick = () => {
+        myMailVerify.style.display = "block";
+        myForgetPwd.style.display = "none";
+      };
+
+      // 改密碼
+      var btnMailVerify = document.getElementById("btnMailVerify");
+      btnMailVerify.onclick = () => {
+        myNewPwd.style.display = "block";
+        myMailVerify.style.display = "none";
+      };
+
+      // 改完密碼 通知
+      var btnNewPwd = document.getElementById("btnNewPwd");
+      btnNewPwd.onclick = () => {
+        alert("更改成功");
+        myNewPwd.style.display = "none";
+      };
+    </script>
+  </body>
+</html>

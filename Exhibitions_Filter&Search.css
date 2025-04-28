@@ -1,0 +1,30 @@
+.filterSearch {
+    display: flex;
+    width: 300px;
+    height: 400px;
+    border-radius: 30px;
+    background: rgba(129, 143, 179, 0.25);
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+.form-row {
+    display: flex;
+    width: 100%;
+}
+
+.form-row label {
+    width: 40%;
+}
+
+.form-row select {
+    width: 60%;
+    margin-left: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding: 10px 5px 5px 20px;
+}

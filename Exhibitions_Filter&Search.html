@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展覽活動-篩選&搜尋</title>
+    <link rel="stylesheet" href="./Exhibitions_Filter&Search.css">
+</head>
+
+<body>
+    <!-- 篩選列 -->
+    <form action="" class="filterSearch">
+        <!-- 依地區 -->
+        <div class="form-row"><label for="filterLocation">依地區</label>
+            <select name="" id="filterLocation">
+                <optgroup label="北部" aria-placeholder="choice">
+                    <option>臺北市</option>
+                    <option>新北市</option>
+                    <option>基隆市</option>
+                    <option>宜蘭縣</option>
+                    <option>桃園市</option>
+                    <option>新竹縣/市</option>
+                </optgroup>
+                <optgroup label="中部">
+                    <option>苗栗縣</option>
+                    <option>臺中市</option>
+                    <option>彰化縣</option>
+                    <option>南投縣</option>
+                    <option>雲林縣</option>
+                </optgroup>
+                <optgroup label="南部">
+                    <option>嘉義縣/市</option>
+                    <option>臺南市</option>
+                    <option>高雄市</option>
+                    <option>屏東縣</option>
+                </optgroup>
+                <optgroup label="東部">
+                    <option>花蓮縣</option>
+                    <option>臺東縣</option>
+                </optgroup>
+            </select>
+        </div>
+        <!-- 依時間 -->
+        <div class="form-row"><label for="filterTime">依時間</label>
+            <select name="" id="filterTime">
+                <option>近一周</option>
+                <option>近一月</option>
+                <option>近三月</option>
+            </select>
+        </div>
+        <!-- 依展館 -->
+        <div class="form-row"><label for="filterHall">依展館</label>
+            <select name="" id="filterHall">
+                <optgroup label="臺北市">
+                    <option>臺北流行音樂中心文化館</option>
+                    <option></option>
+                    <option></option>
+                </optgroup>
+                <optgroup label="新北市"></optgroup>
+                <option></option>
+                <option></option>
+                <option></option>
+                <optgroup label="基隆市"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="宜蘭縣"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="桃園市"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="新竹縣/市"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="苗栗縣"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="台中市">
+                    <option>文化部文化資產園區國際展演館</option>
+                    <option>勤美術館</option>
+                    <option>東勢客家文化園區</option>
+                    <option>林懋陽故居(一德洋樓)</option>
+                    <option>臺中市大墩文化中心</option>
+                </optgroup>
+                <optgroup label="彰化縣">
+                    <option>彰化縣立美術館</option>
+                    <option>彰化藝術館</option>
+                    <option>國立彰化生活美學館</option>
+                    <option>鹿港公會堂(藝文館)</option>
+                </optgroup>
+                <optgroup label="南投縣"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="雲林縣"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="嘉義縣/市"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="臺南市"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="高雄市"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="屏東縣"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="花蓮縣"></optgroup>
+                <option></option>
+                <option></option>
+                <optgroup label="台東">
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                </optgroup>
+            </select>
+        </div>
+        <!-- 依展覽性質 -->
+        <div class="form-row"><label for="filterNature">依展覽性質</label>
+            <select name="" id="filterNature">
+                <option value="0">免費入場</option>
+                <option value="1">購票入場</option>
+            </select>
+        </div>
+        <!-- 依展覽狀態 -->
+        <div class="form-row"><label for="filterState">依展覽狀態</label>
+            <select name="" id="filterState">
+                <option value="1">正在展覽中</option>
+                <option value="0">已過期</option>
+            </select>
+        </div>
+        <!-- 依類別 -->
+        <div><label for="filterClass">依類別</label>
+            <div id="filterClass" class="grid-container">
+                <input type="checkbox" id="draw" name=""><label for="draw">畫作</label></input>
+                <input type="checkbox" id="sculpture" name=""><label for="sculpture">雕塑</label> </input>
+                <input type="checkbox" id="ceramics" name=""><label for="ceramics">陶藝</label> </input>
+                <input type="checkbox" id="music" name=""><label for="music">音樂</label> </input>
+                <input type="checkbox" id="dance" name=""><label for="dance">舞蹈</label> </input>
+                <input type="checkbox" id="video" name=""><label for="video">影視</label> </input>
+                <input type="checkbox" id="photography" name=""><label for="photography">攝影</label> </input>
+                <input type="checkbox" id="culture" name=""><label for="culture">文化</label></input>
+                <input type="checkbox" id="animation" name=""><label for="animation">書籍</label></input>
+                <input type="checkbox" id="fashion" name=""><label for="fashion">動漫</label></input>
+                <input type="checkbox" id="handmade" name=""><label for="handmade">服飾</label></input>
+                <input type="checkbox" id="history" name=""><label for="history">歷史</label></input>
+                <input type="checkbox" id="documentary" name=""><label for="documentary">紀錄</label></input>
+                <input type="checkbox" id="architecture" name=""><label for="architecture">建築</label></input>
+                <input type="checkbox" id="ecology" name=""><label for="ecology">生態</label></input>
+                <input type="checkbox" id="familyFriendly" name=""><label for="familyFriendly">親子</label></input>
+                <input type="checkbox" id="abstractArt" name=""><label for="abstractArt">抽象</label></input>
+                <input type="checkbox" id="lifestyle" name=""><label for="lifestyle">生活</label></input>
+                <input type="checkbox" id="contemporaryArt" name=""><label for="contemporaryArt">互動</label></input>
+                <input type="checkbox" id="immersive" name=""><label for="immersive">手工藝</label></input>
+                <input type="checkbox" id="interactive" name=""><label for="interactive">沉浸式</label></input>
+                <input type="checkbox" id="environmentalResonance" name=""><label for="environmentalResonance">當代藝術</label></input>
+                <input type="checkbox" id="books" name=""><label for="books">環境共鳴</label></input>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

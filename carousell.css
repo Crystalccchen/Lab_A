@@ -1,0 +1,53 @@
+.carousel {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin: auto;
+  perspective: 1000px; /* 重點！給 3D 效果深度 */
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.carousel {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin: auto;
+  perspective: 1000px; /* 重點！給 3D 效果深度 */
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* 左右兩張圖片，做旋轉與縮小 */
+.left {
+  transform: translate(-150%, -50%) rotateY(45deg) scale(0.8);
+}
+.right {
+  transform: translate(50%, -50%) rotateY(-45deg) scale(0.8);
+}
+.center {
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2;
+}
+

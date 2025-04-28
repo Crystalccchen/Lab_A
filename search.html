@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>搜尋欄</title>
+    <link rel="stylesheet" href="search.css" />
+  </head>
+  <body>
+    <!-- 包一層外部容器，讓搜尋欄靠右 -->
+    <div class="search-wrapper">
+      <div class="search-container">
+        <label class="search-label" for="search">搜尋：</label>
+        <input
+          type="text"
+          id="search"
+          class="search-input"
+          placeholder="輸入關鍵字"
+        />
+        <button class="search-button" onclick="performSearch()">
+          <img src="./magnifier.png" alt="搜尋" />
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function performSearch() {
+        const keyword = document.getElementById("search").value.trim();
+        if (keyword) {
+          alert(`你搜尋的關鍵字是：${keyword}`);
+        } else {
+          alert("請輸入搜尋關鍵字");
+        }
+      }
+    </script>
+  </body>
+</html>
